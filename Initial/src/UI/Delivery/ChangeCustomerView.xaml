@@ -1,0 +1,39 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:delivery="clr-namespace:PackageDelivery.Delivery">
+    <DataTemplate x:Key="ChangeCustomerView" DataType="delivery:ChangeCustomerViewModel">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ListBox Grid.Column="0" Grid.Row="0" SelectedItem="{Binding SelectedCustomer}" ItemsSource="{Binding Customers}" DisplayMemberPath="NM_CLM" x:Name="list">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Padding" Value="5"/>
+                        <Setter Property="FontSize" Value="18"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+
+            <Grid Grid.Column="0" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Grid.Row="0" Content="OK" CommandParameter="{Binding ElementName=list, Path=SelectedItem}" Command="{Binding OkCommand}" Padding="5" Margin="10" FontSize="18" />
+                <Button Grid.Column="1" Grid.Row="0" Command="{Binding CancelCommand}" Padding="5" Margin="10" Content="Cancel" FontSize="18" />
+            </Grid>
+        </Grid>
+
+    </DataTemplate>
+</ResourceDictionary>

@@ -1,0 +1,17 @@
+﻿<Application x:Class="PackageDelivery.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="Common/MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Common/Common.xaml"/>
+                <ResourceDictionary Source="Delivery/DeliveryListView.xaml"/>
+                <ResourceDictionary Source="Delivery/NewDeliveryView.xaml"/>
+                <ResourceDictionary Source="Delivery/ChangeCustomerView.xaml"/>
+                <ResourceDictionary Source="Delivery/ChangeProductView.xaml"/>
+                <ResourceDictionary Source="Delivery/EditPackageView.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
