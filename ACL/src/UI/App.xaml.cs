@@ -6,7 +6,7 @@ namespace PackageDelivery
     {
         public App()
         {
-            DBHelper.Init(@"Server=.\Sql2014;Database=LegacyPrepare;Trusted_Connection=true;");
+            DBHelper.Init(@"Server=.\Sql;Database=PackageDelivery;Trusted_Connection=true;");
         }
     }
 }
