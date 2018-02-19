@@ -1,0 +1,55 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                    xmlns:deliveryNew="clr-namespace:PackageDelivery.DeliveryNew">
+    <DataTemplate x:Key="AddProductLineView" DataType="deliveryNew:AddProductLineViewModel">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Content="Product:" Margin="10" Padding="5" FontSize="18" />
+            <Grid Grid.Column="1" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBox Grid.Column="0" Grid.Row="0" Text="{Binding Path=ProductName, Mode=OneWay}" IsReadOnly="True"
+                         Background="GhostWhite" Padding="5" Margin="10" FontSize="18" />
+                <Button Grid.Column="1" Grid.Row="0" Content="Change" Command="{Binding ChangeProductCommand}"
+                        Padding="5" Margin="10" FontSize="18" />
+                <Label Grid.Column="2" Grid.Row="0" Content="Amount:" Margin="10" Padding="5" FontSize="18" />
+                <xctk:DecimalUpDown Grid.Column="3" Grid.Row="0" Value="{Binding Path=Amount, Mode=TwoWay}"
+                                    Increment="1" Minimum="0" Maximum="99" Padding="5" Margin="10" FontSize="18" />
+            </Grid>
+
+            <Grid Grid.Column="1" Grid.Row="1" Margin="0 15 0 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Grid.Row="0" Command="{Binding OkCommand}" Padding="5" Margin="10"
+                        FontSize="18" Content="OK" />
+                <Button Grid.Column="1" Grid.Row="0" Command="{Binding CancelCommand}" Padding="5" Margin="10"
+                        FontSize="18" Content="Cancel" />
+            </Grid>
+        </Grid>
+
+    </DataTemplate>
+</ResourceDictionary>

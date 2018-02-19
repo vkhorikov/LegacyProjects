@@ -1,0 +1,71 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:deliveryNew="clr-namespace:PackageDelivery.DeliveryNew">
+    <DataTemplate x:Key="ChangePackageView" DataType="deliveryNew:ChangePackageViewModel">
+
+        <DockPanel>
+            <Grid DockPanel.Dock="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Content="Cost Estimate"
+                       HorizontalAlignment="Center" FontWeight="Bold" Margin="10 0 10 0" Padding="5" FontSize="18" />
+                <TextBox Grid.Column="0" Grid.Row="1" Text="{Binding Path=CostEstimate, Mode=OneWay}" IsReadOnly="True"
+                         Background="GhostWhite" Padding="5" Margin="10" FontSize="18" />
+                <Button Grid.Column="1" Grid.Row="1" Content="Recalculate" Command="{Binding RecalculateCostCommand}"
+                        Padding="5" Margin="10" FontSize="18" />
+            </Grid>
+
+            <Label DockPanel.Dock="Top" Content="Product Lines" HorizontalAlignment="Center" FontWeight="Bold"
+                   Margin="10 10 10 0" Padding="5" FontSize="18" />
+
+            <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Left" Orientation="Horizontal" Margin="5 0 0 5">
+                <Button Command="{Binding NewProductLineCommand}" Content="New" Margin="3" Padding="5" />
+                <Button Command="{Binding DeleteProductLineCommand}"
+                        CommandParameter="{Binding ElementName=grdProductLines, Path=SelectedValue}" Content="Delete"
+                        Margin="3" Padding="5" />
+            </StackPanel>
+
+            <Grid DockPanel.Dock="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <DataGrid x:Name="grdProductLines" ItemsSource="{Binding Path=ProductLines}" IsReadOnly="True"
+                          AutoGenerateColumns="False" SelectionMode="Single" FontSize="15">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Product.Name}" />
+                        <DataGridTextColumn Header="Weight (lb)" Binding="{Binding Product.WeightInPounds}" />
+                        <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Grid Grid.Row="1" Margin="0 15 0 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0" Grid.Row="0" Command="{Binding OkCommand}" Padding="5" Margin="10"
+                            FontSize="18" Content="OK" />
+                    <Button Grid.Column="1" Grid.Row="0" Command="{Binding CancelCommand}" Padding="5" Margin="10"
+                            FontSize="18" Content="Cancel" />
+                </Grid>
+            </Grid>
+        </DockPanel>
+
+    </DataTemplate>
+</ResourceDictionary>
