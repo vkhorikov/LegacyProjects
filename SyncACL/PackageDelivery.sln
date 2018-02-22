@@ -9,8 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackageDeliveryNew", "src\P
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CABA6D5F-6CA8-428F-83A2-5DE83336A990}"
 	ProjectSection(SolutionItems) = preProject
-		src\NewDatabase.sql = src\NewDatabase.sql
+		src\SyncAclChanges_Bubble.sql = src\SyncAclChanges_Bubble.sql
+		src\SyncAclChanges_Legacy.sql = src\SyncAclChanges_Legacy.sql
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acl", "src\Acl\Acl.csproj", "{128004B0-74F5-4FA3-B6D8-5C312982311F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +29,10 @@ Global
 		{E015804E-94FB-4231-B7EF-04EA4D9498FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E015804E-94FB-4231-B7EF-04EA4D9498FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E015804E-94FB-4231-B7EF-04EA4D9498FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{128004B0-74F5-4FA3-B6D8-5C312982311F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{128004B0-74F5-4FA3-B6D8-5C312982311F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{128004B0-74F5-4FA3-B6D8-5C312982311F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{128004B0-74F5-4FA3-B6D8-5C312982311F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

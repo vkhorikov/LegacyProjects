@@ -20,7 +20,7 @@ namespace PackageDelivery.Delivery
             {
                 string query = @"
                     SELECT p.*, LTRIM(RTRIM(a.STR)) + ', ' + a.CT_ST ADDR FROM [dbo].[P_TBL] p
-                    INNER JOIN [dbo].[ADDR_TBL] a ON p.ADDR1 = a.ID_CLM";
+                    LEFT JOIN [dbo].[ADDR_TBL] a ON p.ADDR1 = a.ID_CLM";
                 return connection.Query<Cstm>(query).ToList();
             }
         }

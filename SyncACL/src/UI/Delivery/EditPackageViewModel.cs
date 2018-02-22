@@ -53,7 +53,7 @@ namespace PackageDelivery.Delivery
             Amount4 = _delivery.PRD_LN_4_AMN == null ? 0 : int.Parse(_delivery.PRD_LN_4_AMN);
             CostEstimate = _delivery.ESTM_CLM;
 
-            OkCommand = new Command(Save);
+            OkCommand = new Command(() => false, Save);
             CancelCommand = new Command(() => DialogResult = false);
             ChangeProduct1Command = new Command(() => ChangeProduct(ref _product1, nameof(Product1Name)));
             ChangeProduct2Command = new Command(() => ChangeProduct(ref _product2, nameof(Product2Name)));

@@ -21,7 +21,7 @@ namespace PackageDeliveryNew.Deliveries
         {
             Contracts.Require(id >= 0);
             Contracts.Require(destination != null);
-            Contracts.Require(costEstimate >= 0);
+            Contracts.Require(costEstimate == null || costEstimate >= 0);
             Contracts.Require(lines != null);
 
             Destination = destination;
